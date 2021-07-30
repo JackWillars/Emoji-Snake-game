@@ -1,0 +1,128 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500&display=swap");
+
+html {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+  position: fixed;
+  font-family: "Poppins", sans-serif;
+}
+
+:root {
+  --background-colour: #1d1d1d;
+  --element-background-colour: #262626;
+  --element-colour: #626262;
+  --element-interaction-colour: #b3b3b3;
+  --accent-colour: #ff4b26;
+  --dark-accent: #d84122;
+  --pure-white: #fff;
+  --text-colour: #ffffff;
+}
+
+body {
+  margin: 0;
+  display: flex;
+  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: repeat(10, auto);
+  background-color: var(--background-colour);
+}
+body:before {
+  font-weight: 500;
+  content: "Click or tap to start";
+  white-space: pre;
+  position: fixed;
+  left: 40%;
+  border-radius: 15px;
+  width: 20%;
+  top: 30%;
+  font-size: 25px;
+  text-align: center;
+  background: var(--element-background-colour);
+  color: var(--text-colour);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  padding: 30px;
+  box-sizing: border-box;
+}
+
+@media (max-width: 1500px) {
+  body:before {
+    font-size: 16px;
+    padding: 20px 30px;
+    content: "Sorry, this can only be played on computers :(";
+    left: 50%;
+    top: 45%;
+    position: fixed;
+    transform: translate(-50%,50%);
+    width: auto;
+  }
+  body:after{
+      visibility: hidden;
+  }
+}
+body:after {
+  content: attr(data-score);
+  white-space: pre;
+  position: fixed;
+  top: 10px;
+  left: 10px;
+  font-size: 20px;
+  border-radius: 15px;
+  text-align: center;
+  background: var(--element-background-colour);
+  color: var(--text-colour);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  padding: 30px;
+  box-sizing: border-box;
+  display: block;
+}
+@media (max-width: 500px) {
+  body:after {
+    font-size: 18px;
+    padding: 10px 20px;
+  }
+}
+body.playing:after,
+body.playing:before {
+  display: none;
+}
+
+div {
+  font-size: 40px;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 0;
+  padding-top: 100%;
+  margin: 2px;
+}
+@media (max-width: 700px) {
+  div {
+    font-size: 20px;
+  }
+}
+@media (max-height: 550px) {
+  div {
+    font-size: 20px;
+  }
+}
+div:before {
+  content: "⬛";
+}
+div.snake:before {
+  content: "🟡";
+}
+div.head:before {
+  content: "😳";
+}
+div.dead:before {
+  content: "☠️";
+}
+
+div.apple:before {
+  content: "🍎";
+}
